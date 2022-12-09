@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get("/", { :controller => "application", :action => "homepage" })
 
   # Routes for the Bookmark resource:
 
@@ -91,6 +92,8 @@ Rails.application.routes.draw do
 
   # READ
   get("/directors", { :controller => "directors", :action => "index" })
+  get("/directors/youngest", { :controller => "directors", :action => "index" })
+  get("/directors/eldest", { :controller => "directors", :action => "index" })
 
   get("/directors/:path_id", { :controller => "directors", :action => "show" })
 
