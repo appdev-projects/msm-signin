@@ -1,4 +1,15 @@
 class DirectorsController < ApplicationController
+
+  def youngest
+    @dir = Director.where.not(dob: nil).order(dob: :asc).last
+    render(template: "directors/youngest")
+  end
+
+  def eldest
+    @dir = Director.where.not(dob: nil).order(dob: :asc).first
+    render(template: "directors/eldest")
+  end
+
   def index
     matching_directors = Director.all
 
