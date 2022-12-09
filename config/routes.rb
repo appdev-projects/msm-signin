@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   # Routes for the Bookmark resource:
 
+  # post("/add_bookmark", { :controller => "bookmarks", :action => "add_user_bookmark" })
+
   # CREATE
   post("/insert_bookmark", { :controller => "bookmarks", :action => "create" })
 
