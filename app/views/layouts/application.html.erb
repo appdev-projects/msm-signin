@@ -23,15 +23,36 @@
       <%= notice %>
     </div>
 
-    <nav>
-      <ul>
-        <li>Sign in</li>
-        <li>Sign up</li>
-        <li>
-          <a href="/">Home</a>
-        </li>
-      </ul>
-    </nav>
+    <% if session.fetch(:user_id).present? %>
+      <nav>
+        <ul>
+          <li>
+            <a href="/user_sign_out">Sign out</a>
+          </li>
+          <li>
+            <a href="/bookmarks">My bookmarks</a>
+          </li>
+          <li>
+            <a href="/">Home</a>
+          </li>
+        </ul>
+      </nav>
+
+    <% else %>
+      <nav>
+        <ul>
+          <li>
+            <a href="/user_sign_in">Sign in</a>
+          </li>
+          <li>
+            <a href="/user_sign_up">Sign up</a>
+          </li>
+          <li>
+            <a href="/">Home</a>
+          </li>
+        </ul>
+      </nav>
+    <% end %>
 
     <%= yield %>
   </body>
